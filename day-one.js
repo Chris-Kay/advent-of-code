@@ -1,16 +1,17 @@
-module.exports = (number) => {
-    console.log(number);
+const reducer = (accumulator, currentValue) =>  {
+    return parseInt(accumulator) + parseInt(currentValue)
+}
 
-    const stringNumber = number.split('');
+module.exports = (number) => {
 
     var x = [];
-    for(var i = 0; i < stringNumber.length; i++ ) {
-        if(i + 1 === stringNumber.length && stringNumber[i] === stringNumber[0]) {
-            x.push(stringNumber[i])
+    for(var i = 0; i < number.length; i++ ) {
+        if(i + 1 === number.length && number[i] === number[0]) {
+            x.push(number[i])
         }
 
-        if(stringNumber[i] === stringNumber[i + 1]) {
-            x.push(stringNumber[i])
+        if(number[i] === number[i + 1]) {
+            x.push(number[i])
         }
     }
 
@@ -19,9 +20,6 @@ module.exports = (number) => {
             return parseInt(x[0])
         }
 
-        const reducer = (accumulator, currentValue) =>  {
-            return parseInt(accumulator) + parseInt(currentValue)
-        }
         return x.reduce(reducer);
     }
 
